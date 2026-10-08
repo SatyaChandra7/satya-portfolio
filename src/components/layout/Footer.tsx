@@ -28,27 +28,27 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://linkedin.com/"
+                href="https://www.linkedin.com/in/satya-chandra-a6169029a"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white border border-[rgba(255,102,0,0.25)] text-[#0F172A] hover:text-[#FF6600] hover:border-[#FF6600] shadow-xs transition-all"
-                aria-label="LinkedIn"
+                className="p-2 rounded-lg bg-white border border-[rgba(255,102,0,0.25)] text-[#0F172A] hover:text-[#FF6600] hover:border-[#FF6600] shadow-xs transition-all cursor-pointer"
+                aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href="https://github.com/"
+                href="https://github.com/SatyaChandra7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white border border-[rgba(255,102,0,0.25)] text-[#0F172A] hover:text-[#FF6600] hover:border-[#FF6600] shadow-xs transition-all"
-                aria-label="GitHub"
+                className="p-2 rounded-lg bg-white border border-[rgba(255,102,0,0.25)] text-[#0F172A] hover:text-[#FF6600] hover:border-[#FF6600] shadow-xs transition-all cursor-pointer"
+                aria-label="GitHub Profile"
               >
                 <Github className="w-4 h-4" />
               </a>
               <a
                 href="mailto:satyachandra722@gmail.com"
-                className="p-2 rounded-lg bg-white border border-[rgba(255,102,0,0.25)] text-[#0F172A] hover:text-[#FF6600] hover:border-[#FF6600] shadow-xs transition-all"
-                aria-label="Email"
+                className="p-2 rounded-lg bg-white border border-[rgba(255,102,0,0.25)] text-[#0F172A] hover:text-[#FF6600] hover:border-[#FF6600] shadow-xs transition-all cursor-pointer"
+                aria-label="Email Satya Chandra"
               >
                 <Mail className="w-4 h-4" />
               </a>

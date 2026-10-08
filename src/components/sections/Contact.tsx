@@ -115,7 +115,7 @@ export const Contact: React.FC = () => {
 
                 {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com/"
+                  href="https://www.linkedin.com/in/satya-chandra-a6169029a"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-white/90 border border-[rgba(255,102,0,0.2)] shadow-sm hover:border-[#FF6600] transition-all group"
