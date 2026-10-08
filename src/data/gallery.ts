@@ -6,7 +6,7 @@ export const galleryData: MediaItem[] = [
     title: 'MB Bloods Video Advertisement',
     category: 'Video Edits',
     thumbnail: '/graphic-design/thumbs/mbbloods.jpg',
-    videoUrl: '/video-edits/mb bloods ad2.mp4',
+    videoUrl: '/video-edits/mbbloods-ad.mp4',
     description: 'High-impact promo video advertisement edited in Adobe Premiere Pro for the MB Bloods emergency donation platform.',
     tags: ['Premiere Pro', 'Video Editing', 'Motion Graphics', 'Promo']
   },

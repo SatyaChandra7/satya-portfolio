@@ -29,6 +29,7 @@ next-env.d.ts
 # Large Media Files exceeding GitHub 100MB limit
 *.mp4
 *.mov
+!public/video-edits/*.mp4
 /video edits/
 /graphic design/
 /certifications/

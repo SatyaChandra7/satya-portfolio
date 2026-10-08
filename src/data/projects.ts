@@ -9,7 +9,7 @@ export const projectsData: Project[] = [
     description: 'Full-stack emergency blood donation application engineered with RegEx search, JWT-secured admin dispatch, and Google Sheets cloud data synchronization.',
     image: '/assets/project-bloods.jpg',
     logo: '/assets/mbbloods-logo.png',
-    videoUrl: '/video-edits/mb bloods ad2.mp4',
+    videoUrl: '/video-edits/mbbloods-ad.mp4',
     githubUrl: 'https://github.com/satyachandra722/mb-bloods',
     liveUrl: 'https://www.mbbloods.org/',
     featured: true,
