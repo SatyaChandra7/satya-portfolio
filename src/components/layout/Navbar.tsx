@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Code2, Sparkles, Send } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
 
 const navItems = [
+  { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
@@ -51,8 +52,8 @@ export const Navbar: React.FC = () => {
             : 'bg-[rgba(255,255,255,0.18)] border border-[rgba(255,255,255,0.35)]'
         }`}>
 
-          {/* Desktop Navigation Links - Perfectly Balanced 6-Column Grid */}
-          <div className="hidden md:grid grid-cols-6 w-full items-center justify-items-stretch gap-1 sm:gap-2">
+          {/* Desktop Navigation Links - Perfectly Balanced 7-Column Grid */}
+          <div className="hidden md:grid grid-cols-7 w-full items-center justify-items-stretch gap-1 sm:gap-2">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (

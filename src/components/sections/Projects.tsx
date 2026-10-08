@@ -129,12 +129,23 @@ export const Projects: React.FC = () => {
 
               {/* Bottom Action Footer */}
               <div className="p-6 pt-0 border-t border-[rgba(255,102,0,0.12)] flex items-center justify-between gap-3 mt-4">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2.5 px-3.5 rounded-xl bg-[#FF6600] text-white font-bold text-xs hover:bg-[#E65C00] transition-all flex items-center justify-center gap-1.5 shadow-sm whitespace-nowrap cursor-pointer"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Visit Live</span>
+                  </a>
+                )}
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="w-full py-2.5 rounded-xl bg-[rgba(255,102,0,0.12)] text-[#FF6600] border border-[rgba(255,102,0,0.3)] font-bold text-xs hover:bg-[#FF6600] hover:text-[#FFFFFF] transition-all flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 rounded-xl bg-[rgba(255,102,0,0.12)] text-[#FF6600] border border-[rgba(255,102,0,0.3)] font-bold text-xs hover:bg-[#FF6600] hover:text-[#FFFFFF] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>Read Full Case Study</span>
+                  <span>Case Study</span>
                 </button>
               </div>
 

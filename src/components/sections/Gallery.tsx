@@ -7,26 +7,30 @@ import { GlassCard } from '@/components/common/GlassCard';
 import { galleryData } from '@/data/gallery';
 import { MediaItem } from '@/types';
 import { 
-  Play, 
-  Eye, 
   X, 
   Film, 
   Image as ImageIcon, 
-  Sparkles, 
   ChevronLeft, 
-  ChevronRight
+  ChevronRight,
+  Loader2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Gallery: React.FC = () => {
   const [modalMode, setModalMode] = useState<'Posters' | 'Videos' | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isImageLoading, setIsImageLoading] = useState<boolean>(true);
 
   const postersData = galleryData.filter((item) => item.category === 'Graphic Design' || !item.videoUrl);
   const videosData = galleryData.filter((item) => item.videoUrl || item.category === 'Video Edits');
 
   const activeList = modalMode === 'Posters' ? postersData : modalMode === 'Videos' ? videosData : [];
   const activeMedia = activeList[currentIndex] || null;
+
+  // Reset loading state whenever active index or media changes
+  useEffect(() => {
+    setIsImageLoading(true);
+  }, [currentIndex, modalMode]);
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -216,10 +220,10 @@ export const Gallery: React.FC = () => {
                 {/* Main Media Display with Drag/Swipe gesture */}
                 <motion.div
                   key={activeMedia.id}
-                  initial={{ opacity: 0, scale: 0.95, x: 50 }}
+                  initial={{ opacity: 0, scale: 0.96, x: 30 }}
                   animate={{ opacity: 1, scale: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, x: -50 }}
-                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                  exit={{ opacity: 0, scale: 0.96, x: -30 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={0.2}
@@ -232,11 +236,19 @@ export const Gallery: React.FC = () => {
                   }}
                   className="relative w-full max-h-[65vh] flex items-center justify-center rounded-xl overflow-hidden cursor-grab active:cursor-grabbing px-6 sm:px-10"
                 >
+                  {/* Loading Spinner */}
+                  {isImageLoading && !activeMedia.videoUrl && (
+                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 backdrop-blur-sm rounded-xl">
+                      <Loader2 className="w-8 h-8 text-[#FF6600] animate-spin" />
+                    </div>
+                  )}
+
                   {activeMedia.videoUrl ? (
                     <video
                       src={activeMedia.videoUrl}
                       controls
                       autoPlay
+                      onLoadedData={() => setIsImageLoading(false)}
                       className="max-h-[65vh] w-auto max-w-full rounded-xl shadow-2xl"
                     />
                   ) : (
@@ -245,7 +257,11 @@ export const Gallery: React.FC = () => {
                         src={activeMedia.highResUrl || activeMedia.thumbnail}
                         alt={activeMedia.title}
                         fill
-                        className="object-contain rounded-xl"
+                        sizes="(max-width: 1024px) 100vw, 1024px"
+                        onLoad={() => setIsImageLoading(false)}
+                        className={`object-contain rounded-xl transition-opacity duration-300 ${
+                          isImageLoading ? 'opacity-0' : 'opacity-100'
+                        }`}
                         priority
                       />
                     </div>
@@ -305,6 +321,7 @@ export const Gallery: React.FC = () => {
                         src={item.thumbnail}
                         alt={item.title}
                         fill
+                        sizes="64px"
                         className="object-cover"
                       />
                     </button>

@@ -11,7 +11,7 @@ export const projectsData: Project[] = [
     logo: '/assets/mbbloods-logo.png',
     videoUrl: '/video-edits/mb bloods ad2.mp4',
     githubUrl: 'https://github.com/satyachandra722/mb-bloods',
-    liveUrl: 'https://mbbloods.vercel.app',
+    liveUrl: 'https://www.mbbloods.org/',
     featured: true,
     tags: ['Full-Stack', 'Social Impact', 'Real-Time Sync'],
     techStack: ['Node.js', 'Express.js', 'MongoDB Atlas', 'Tailwind CSS v4', 'Alpine.js', 'Google Sheets API', 'Vercel'],

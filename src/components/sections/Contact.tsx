@@ -32,13 +32,21 @@ export const Contact: React.FC = () => {
         body: JSON.stringify(formData)
       });
 
-      if (res.ok) {
+      const data = await res.json();
+
+      if (res.ok && data.success) {
         setStatus('success');
-        setStatusMessage('Thank you! Your message has been sent successfully. I will get back to you shortly.');
+        setStatusMessage('Thank you! Your message details have been sent to satyachandra722@gmail.com. Satya Chandra will get back to you shortly.');
+        
+        if (data.fallbackToMailto) {
+          const mailtoUrl = `mailto:satyachandra722@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+          window.location.href = mailtoUrl;
+        }
+
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setStatus('error');
-        setStatusMessage('Message could not be sent. Please try emailing directly.');
+        setStatusMessage(data.error || 'Message could not be sent. Please try emailing directly to satyachandra722@gmail.com.');
       }
     } catch (err) {
       setStatus('error');
